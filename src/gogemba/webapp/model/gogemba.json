@@ -1,0 +1,467 @@
+{
+	"WorkCenters":	[
+		{
+			"WorkCenter": "JMW-ARB1",
+			"WorkCenterText": "Machine 1",
+			"WorkCenterInternalID" : "10000178",
+			"CurrentOperator" : "John Miller",
+			"ProductionUnit" : "EA",
+			"InProcessPlannedQuantity" : 0,
+			"InProcessActualQuantity" : 0,
+			"InProcessConfirmedYieldQty" : 0,
+			"InProcessConfirmedScrapQty" : 0,
+			"TotalOperationOnHold":0,
+			"TotalOperationExecutionIsLate" : 0,
+			"TotalOperationMissingComponents" : 0, 
+			"TotalOperationMissingTools" : 0, 
+			"TotalOperationYieldDeviationQty" : 0, 
+			"TotalOpScrapQualityIssue" : 0,
+			"Accuracy" : -1,
+			"Direction":null,
+			"WorkCenterStatus":"running",
+			"InProcessProductionOrders": [
+				{
+					"ManufacturingOrder" : "1004713",
+					"Material": "1303",
+					"MaterialName" : "Finished product",
+					"MfgOrderPlannedStartDate" : "/Date(1460995200000)/",
+					"MfgOrderPlannedStartTime" : "PT10H30M00S",
+					"MfgOrderPlannedEndDate" : "/Date(1460995200000)/",
+					"MfgOrderPlannedEndTime" : "PT13H00M00S",
+					"MfgOrderActualStartDate" : "/Date(1460995200000)/",
+					"MfgOrderActualStartTime" : "PT10H30M00S",
+					"MfgOrderActualEndDate" : null,
+					"MfgOrderActualEndTime" : null,
+					"MfgOrderPlannedTotalQty" : 125,
+					"MfgOrderActualTotalQty" : 27,
+					"MfgOrderConfirmedYieldQty" : 25,
+					"MfgOrderConfirmedScrapQty" : 2,
+					"ProductionUnit" : "EA",
+					"OperationExecutionEndIsLate":null,
+					"OperationExecutionStartIsLate" : null,
+					"OperationMissingComponents" : "X", 
+					"OperationMissingTools" : "X", 
+					"OpScrapQualityIssue" : null, 
+					"Stat_Calc" : "Partially Confirmed",
+					"OperationIssues" : {
+						"OperationMissingComponents" : 
+						{
+							"Status" : null,
+							"Title" : "Components missing",
+							"NotificationID" : null,
+							"Type" : "Movement Request",
+							"Issues" : [
+								{
+									"Description" : "FIO-NAV-001002",
+									"Quantity" : "2 EA"
+								},
+								{
+									"Description" : "FIO-NAV-001005-B",
+									"Quantity" : "3 EA"
+								}
+							]
+						},
+						"OperationMissingTools" :
+						{
+							"Status" : null,
+							"Title" : "Tool at end of life time",
+							"TechnicalObject" : "R-Stamp-100",
+							"NotificationID" : null,
+							"Issues" : [
+								{
+									"Description" : "Tool R-Stamp-100 to be sharpened"
+								},
+								{
+									"Description" : "1000 Cut left please notify"
+								}
+							]
+						}
+					}
+				}
+			],
+			"QueuingProductionOrders":	[
+				{
+					"ManufacturingOrder" : "1004714",
+					"Material": "1305",
+					"MaterialName" : "Finished product",
+					"Material_Text" : "Finished product",
+					"MfgOrderPlannedStartDate" : "/Date(1460995200000)/",
+					"MfgOrderPlannedStartTime" : "PT13H00M00S",
+					"MfgOrderPlannedEndDate" : "/Date(1460995200000)/",
+					"MfgOrderPlannedEndTime" : "PT15H30M00S",
+					"MfgOrderActualStartDate" : null,
+					"MfgOrderActualStartTime" : null,
+					"MfgOrderActualEndDate" : null,
+					"MfgOrderActualEndTime" : null,
+					"MfgOrderPlannedTotalQty" : 125,
+					"MfgOrderActualTotalQty" : 0,
+					"MfgOrderConfirmedYieldQty" : 0,
+					"MfgOrderConfirmedScrapQty" : 0,
+					"ProductionUnit" : "EA",
+					"OperationExecutionEndIsLate":"X",
+					"OperationExecutionStartIsLate" : null,
+					"OperationMissingComponents" : null, 
+					"OpScrapQualityIssue" : null, 
+					"Stat_Calc" : "Released",
+					"OperationIssues" : {
+						"OperationExecutionIsLate" :
+						{
+							"Status" : null,
+							"Title" : "Operation Delayed",
+							"NotificationID" : null,
+							"Issues" : [
+								{
+									"Description" : "Actual end time is delayed"
+								}
+							]
+						}
+					}
+				},
+				{
+					"ManufacturingOrder" : "1004715",
+					"Material": "1306",
+					"MaterialName" : "Finished product",
+					"MfgOrderPlannedStartDate" : "/Date(1460995200000)/",
+					"MfgOrderPlannedStartTime" : "PT15H30M00S",
+					"MfgOrderPlannedEndDate" : "/Date(1460995200000)/",
+					"MfgOrderPlannedEndTime" : "PT18H00M00S",
+					"MfgOrderActualStartDate" : null,
+					"MfgOrderActualStartTime" : null,
+					"MfgOrderActualEndDate" : null,
+					"MfgOrderActualEndTime" : null,
+					"MfgOrderPlannedTotalQty" : 125,
+					"MfgOrderActualTotalQty" : 0,
+					"MfgOrderConfirmedYieldQty" : 0,
+					"MfgOrderConfirmedScrapQty" : 0,
+					"ProductionUnit" : "EA",
+					"OperationExecutionEndIsLate":null,
+					"OperationExecutionStartIsLate" : null,
+					"OperationMissingComponents" : null, 
+					"OpScrapQualityIssue" : null, 
+					"Stat_Calc" : "Created",
+					"OperationIssues" : {
+					}
+				}		
+			],
+			"FinishedProductionOrders":	[
+				{
+					"ManufacturingOrder" : "1004712",
+					"Material": "1305",
+					"MaterialName" : "Finished product",
+					"MfgOrderPlannedStartDate" : "/Date(1460995200000)/",
+					"MfgOrderPlannedStartTime" : "PT09H30M00S",
+					"MfgOrderPlannedEndDate" : "/Date(1460995200000)/",
+					"MfgOrderPlannedEndTime" : "PT10H30M00S",
+					"MfgOrderActualStartDate" : "/Date(1460995200000)/",
+					"MfgOrderActualStartTime" : "PT09H30M00S",
+					"MfgOrderActualEndDate" : "/Date(1460995200000)/",
+					"MfgOrderActualEndTime" : "PT10H30M00S",
+					"MfgOrderPlannedTotalQty" : 50,
+					"MfgOrderActualTotalQty" : 55,
+					"MfgOrderConfirmedYieldQty" : 50,
+					"MfgOrderConfirmedScrapQty" : 5,
+					"ProductionUnit" : "EA",
+					"OperationExecutionEndIsLate":null,
+					"OperationExecutionStartIsLate" : null,
+					"OperationMissingComponents" : null, 
+					"OpScrapQualityIssue" : null, 
+					"OperationYieldDeviationQty" : 0,
+					"Stat_Calc" : "Confirmed",
+					"OperationIssues" : {
+					}
+				},
+				{
+					"ManufacturingOrder" : "1004711",
+					"Material": "1305",
+					"MaterialName" : "Finished product",
+					"MfgOrderPlannedStartDate" : "/Date(1460995200000)/",
+					"MfgOrderPlannedStartTime" : "PT16H00M00S",
+					"MfgOrderPlannedEndDate" : "/Date(1460995200000)/",
+					"MfgOrderPlannedEndTime" : "PT09H30M00S",
+					"MfgOrderActualStartDate" : "/Date(1460995200000)/",
+					"MfgOrderActualStartTime" : "PT16H00M00S",
+					"MfgOrderActualEndDate" : "/Date(1460995200000)/",
+					"MfgOrderActualEndTime" : "PT09H30M00S",
+					"MfgOrderPlannedTotalQty" : 125,
+					"MfgOrderActualTotalQty" : 135,
+					"MfgOrderConfirmedYieldQty" : 125,
+					"MfgOrderConfirmedScrapQty" : 10,
+					"ProductionUnit" : "EA",
+					"OperationExecutionEndIsLate":null,
+					"OperationExecutionStartIsLate" : null,
+					"OperationMissingComponents" : null, 
+					"OpScrapQualityIssue" : null, 
+					"OperationYieldDeviationQty" : 0,
+					"Stat_Calc" : "Confirmed",
+					"OperationIssues" : {
+					}
+				}
+			]
+		},
+		{
+			"WorkCenter": "JMW-ARB2",
+			"WorkCenterText": "Machine 2",
+			"WorkCenterInternalID" : "10000201",
+			"CurrentOperator" : "David Boon",
+			"ProductionUnit" : "EA",
+			"InProcessPlannedQuantity" : 0,
+			"InProcessActualQuantity" : 0,
+			"InProcessConfirmedYieldQty" : 0,
+			"InProcessConfirmedScrapQty" : 0,
+			"TotalOperationOnHold":0,
+			"TotalOperationExecutionIsLate" : 0,
+			"TotalOperationMissingComponents" : 0, 
+			"TotalOperationMissingTools" : 0, 
+			"TotalOperationYieldDeviationQty" : 0, 
+			"TotalOpScrapQualityIssue" : 0,
+			"Accuracy" : -1,
+			"Direction":null,
+			"WorkCenterStatus":"down",
+			"InProcessProductionOrders":	[
+				{
+					"ManufacturingOrder" : "1004722",
+					"Material": "1305",
+					"MaterialName" : "Finished product",
+					"MfgOrderPlannedStartDate" : "/Date(1460995200000)/",
+					"MfgOrderPlannedStartTime" : "PT10H00M00S",
+					"MfgOrderPlannedEndDate" : "/Date(1460995200000)/",
+					"MfgOrderPlannedEndTime" : "PT11H00M00S",
+					"MfgOrderActualStartDate" : "/Date(1460995200000)/",
+					"MfgOrderActualStartTime" : "PT11H00M00S",
+					"MfgOrderActualEndDate" : null,
+					"MfgOrderActualEndTime" : null,
+					"MfgOrderPlannedTotalQty" : 50,
+					"MfgOrderActualTotalQty" : 55,
+					"MfgOrderConfirmedYieldQty" : 50,
+					"MfgOrderConfirmedScrapQty" : 5,
+					"ProductionUnit" : "EA",
+					"OperationOnHold":"X",
+					"OperationExecutionEndIsLate":null,
+					"OperationExecutionStartIsLate" : null,
+					"OperationMissingComponents" : null, 
+					"OpScrapQualityIssue" : "X", 
+					"Stat_Calc" : "Delayed",
+					"OperationIssues" : {
+						"OperationOnHold" :
+						{
+							"Status" : null,
+							"Title" : "Machine is down",
+							"TechnicalObject" : "JMW-ARB2",
+							"NotificationID" : null,
+							"Issues" : [
+								{
+									"Description" : "Leakage of hydraulic liquid"
+								}
+							]
+						},
+						"OpScrapQualityIssue" :
+						{
+							"Status" : null,
+							"Title" : "Quality deviation",
+							"Issues" : [
+								{
+									"Description" : "5 Deviation Qty"
+								}
+							]
+						}
+					}
+				}
+			],
+			"QueuingProductionOrders":	[
+				{
+					"ManufacturingOrder" : "1004723",
+					"Material": "1305",
+					"MaterialName" : "Finished product",
+					"Material_Text" : "Finished product",
+					"MfgOrderPlannedStartDate" : "/Date(1460995200000)/",
+					"MfgOrderPlannedStartTime" : "PT11H00M00S",
+					"MfgOrderPlannedEndDate" : "/Date(1460995200000)/",
+					"MfgOrderPlannedEndTime" : "PT15H00M00S",
+					"MfgOrderActualStartDate" : null,
+					"MfgOrderActualStartTime" : null,
+					"MfgOrderActualEndDate" : null,
+					"MfgOrderActualEndTime" : null,
+					"MfgOrderPlannedTotalQty" : 200,
+					"MfgOrderActualTotalQty" : 0,
+					"MfgOrderConfirmedYieldQty" : 0,
+					"MfgOrderConfirmedScrapQty" : 0,
+					"ProductionUnit" : "EA",
+					"OperationExecutionEndIsLate":null,
+					"OperationExecutionStartIsLate" : null,
+					"OperationMissingComponents" : null, 
+					"OpScrapQualityIssue" : null, 
+					"Stat_Calc" : "Released",
+					"OperationIssues" : {
+					}
+				},
+				{
+					"ManufacturingOrder" : "1004724",
+					"Material": "1306",
+					"MaterialName" : "Finished product",
+					"MfgOrderPlannedStartDate" : "/Date(1460995200000)/",
+					"MfgOrderPlannedStartTime" : "PT15H00M00S",
+					"MfgOrderPlannedEndDate" : "/Date(1460995200000)/",
+					"MfgOrderPlannedEndTime" : "PT18H00M00S",
+					"MfgOrderActualStartDate" : null,
+					"MfgOrderActualStartTime" : null,
+					"MfgOrderActualEndDate" : null,
+					"MfgOrderActualEndTime" : null,
+					"MfgOrderPlannedTotalQty" : 150,
+					"MfgOrderActualTotalQty" : 0,
+					"MfgOrderConfirmedYieldQty" : 0,
+					"MfgOrderConfirmedScrapQty" : 0,
+					"ProductionUnit" : "EA",
+					"OperationExecutionEndIsLate":null,
+					"OperationExecutionStartIsLate" : null,
+					"OperationMissingComponents" : null, 
+					"OpScrapQualityIssue" : null, 
+					"Stat_Calc" : "Created",
+					"OperationIssues" : {
+					}
+				}		
+			],
+			"FinishedProductionOrders": [
+				{
+					"ManufacturingOrder" : "1004721",
+					"Material": "1305",
+					"MaterialName" : "Finished product",
+					"MfgOrderPlannedStartDate" : "/Date(1460995200000)/",
+					"MfgOrderPlannedStartTime" : "PT09H00M00S",
+					"MfgOrderPlannedEndDate" : "/Date(1460995200000)/",
+					"MfgOrderPlannedEndTime" : "PT10H00M00S",
+					"MfgOrderActualStartDate" : "/Date(1460995200000)/",
+					"MfgOrderActualStartTime" : "PT09H00M00S",
+					"MfgOrderActualEndDate" : "/Date(1460995200000)/",
+					"MfgOrderActualEndTime" : "PT10H00M00S",
+					"MfgOrderPlannedTotalQty" : 50,
+					"MfgOrderActualTotalQty" : 55,
+					"MfgOrderConfirmedYieldQty" : 50,
+					"MfgOrderConfirmedScrapQty" : 5,
+					"ProductionUnit" : "EA",
+					"OperationExecutionEndIsLate":null,
+					"OperationExecutionStartIsLate" : null,
+					"OperationMissingComponents" : null, 
+					"OpScrapQualityIssue" : null, 
+					"OperationYieldDeviationQty" : -1,
+					"Stat_Calc" : "Confirmed",
+					"OperationIssues" : {
+						"OperationYieldDeviationQty" :
+						{
+							"Status" : null,
+							"Title" : "Quantity deviation",
+							"NotificationID" : null,
+							"Issues" : [
+								{
+									"Description" : "5 Deviation Qty"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"WorkCenter": "JMW-ARB3",
+			"WorkCenterText": "Machine 3",
+			"WorkCenterInternalID" : "10000202",
+			"ProductionUnit" : "EA",
+			"CurrentOperator" : "Frank Meyer",
+			"InProcessPlannedQuantity" : 0,
+			"InProcessActualQuantity" : 0,
+			"InProcessConfirmedYieldQty" : 0,
+			"InProcessConfirmedScrapQty" : 0,
+			"TotalOperationOnHold":0,
+			"TotalOperationExecutionIsLate" : 0,
+			"TotalOperationMissingComponents" : 0, 
+			"TotalOperationMissingTools" : 0, 
+			"TotalOperationYieldDeviationQty" : 0, 
+			"TotalOpScrapQualityIssue" : 0,
+			"Accuracy" : -1,
+			"Direction":null,
+			"WorkCenterStatus":"idle",
+			"InProcessProductionOrders": [
+			],
+			"QueuingProductionOrders":	[
+				{
+					"ManufacturingOrder" : "1004732",
+					"Material": "1305",
+					"MaterialName" : "Finished product",
+					"Material_Text" : "Finished product",
+					"MfgOrderPlannedStartDate" : "/Date(1460995200000)/",
+					"MfgOrderPlannedStartTime" : "PT12H00M00S",
+					"MfgOrderPlannedEndDate" : "/Date(1460995200000)/",
+					"MfgOrderPlannedEndTime" : "PT15H00M00S",
+					"MfgOrderActualStartDate" : null,
+					"MfgOrderActualStartTime" : null,
+					"MfgOrderActualEndDate" : null,
+					"MfgOrderActualEndTime" : null,
+					"MfgOrderPlannedTotalQty" : 150,
+					"MfgOrderActualTotalQty" : 0,
+					"MfgOrderConfirmedYieldQty" : 0,
+					"MfgOrderConfirmedScrapQty" : 0,
+					"ProductionUnit" : "EA",
+					"OperationExecutionEndIsLate":null,
+					"OperationExecutionStartIsLate" : null,
+					"OperationMissingComponents" : null, 
+					"OpScrapQualityIssue" : null, 
+					"Stat_Calc" : "Released",
+					"OperationIssues" : {
+					}
+				},
+				{
+					"ManufacturingOrder" : "1004733",
+					"Material": "1306",
+					"MaterialName" : "Finished product",
+					"MfgOrderPlannedStartDate" : "/Date(1460995200000)/",
+					"MfgOrderPlannedStartTime" : "PT15H00M00S",
+					"MfgOrderPlannedEndDate" : "/Date(1460995200000)/",
+					"MfgOrderPlannedEndTime" : "PT18H00M00S",
+					"MfgOrderActualStartDate" : null,
+					"MfgOrderActualStartTime" : null,
+					"MfgOrderActualEndDate" : null,
+					"MfgOrderActualEndTime" : null,
+					"MfgOrderPlannedTotalQty" : 150,
+					"MfgOrderActualTotalQty" : 0,
+					"MfgOrderConfirmedYieldQty" : 0,
+					"MfgOrderConfirmedScrapQty" : 0,
+					"ProductionUnit" : "EA",
+					"OperationExecutionEndIsLate":null,
+					"OperationExecutionStartIsLate" : null,
+					"OperationMissingComponents" : null, 
+					"OpScrapQualityIssue" : null, 
+					"Stat_Calc" : "Created",
+					"OperationIssues" : {
+					}
+				}		
+			],
+			"FinishedProductionOrders": [
+				{
+					"ManufacturingOrder" : "1004731",
+					"Material": "1305",
+					"MaterialName" : "Finished product",
+					"MfgOrderPlannedStartDate" : "/Date(1460995200000)/",
+					"MfgOrderPlannedStartTime" : "PT09H00M00S",
+					"MfgOrderPlannedEndDate" : "/Date(1460995200000)/",
+					"MfgOrderPlannedEndTime" : "PT010H00M00S",
+					"MfgOrderActualStartDate" : "/Date(1460995200000)/",
+					"MfgOrderActualStartTime" : "PT09H00M00S",
+					"MfgOrderActualEndDate" : "/Date(1460995200000)/",
+					"MfgOrderActualEndTime" : "PT10H00M00S",
+					"MfgOrderPlannedTotalQty" : 50,
+					"MfgOrderActualTotalQty" : 53,
+					"MfgOrderConfirmedYieldQty" : 50,
+					"MfgOrderConfirmedScrapQty" : 3,
+					"ProductionUnit" : "EA",
+					"OperationExecutionEndIsLate":null,
+					"OperationExecutionStartIsLate" : null,
+					"OperationMissingComponents" : null, 
+					"OpScrapQualityIssue" : null, 
+					"OperationYieldDeviationQty" : 0,
+					"Stat_Calc" : "Confirmed",
+					"OperationIssues" : {
+					}
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,103 @@
+<mvc:View controllerName="gogemba.controller.Worklist" displayBlock="true" xmlns:c="gogemba.controls" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<Page id="page" title="{i18n>worklistTitle}">
+		<content>
+			<List id="list" items="{/WorkCenters}" mode="SingleSelectMaster" noDataText="{i18n>noDataText}" selectionChange="handleSelectionChange">
+				<CustomListItem class="sapGGPageBackground" type="Navigation">
+					<VBox class="sapUiSmallMarginBegin">
+						<HBox class="sapUiSmallMarginTop">
+							<VBox width="75%">
+								<Label text="{WorkCenterText}" design="Bold" class="sapGGBlackLabel"/>
+								<Label text="{WorkCenter}" design="Bold" class="sapGGBlackLabel"/>
+							</VBox>
+							<VBox width="25%" alignItems="End" justifyContent="End">
+								<Text text="{path:'Accuracy', formatter:'.formatter.getAccuracy'}" class="sapGGAccuracy"/>
+							</VBox>
+						</HBox>
+						<VBox width="70%" class="sapUiSmallMarginBottom sapGGOverviewPageProgress">
+							<HBox>
+								<VBox width="60%" class="sapUiSmallMarginTop">
+									<Text text="{i18n>planned}" class="sapGGBlackLabel"/>
+								</VBox>
+								<VBox width="40%" alignItems="End" class="sapUiSmallMarginTop">
+									<Text text="{path:'InProcessPlannedQuantity', formatter:'.formatter.getNumber'} {ProductionUnit}" class="sapGGBlackLabel"/>
+								</VBox>
+							</HBox>
+							<c:CustomProgressIndicator type="planned" actual="{InProcessActualQuantity}" planned="{InProcessPlannedQuantity}"
+								showValue="false" state="None" height="10px" class="sapGGOverviewPageProgressIndicatorPlanned"/>
+							<HBox></HBox>
+							<HBox>
+								<VBox width="60%">
+									<Text text="{i18n>actual}" class="sapGGBlackLabel"/>
+								</VBox>
+								<VBox width="40%" alignItems="End">
+									<Text text="{path:'InProcessActualQuantity', formatter:'.formatter.getNumber'} {ProductionUnit}" class="sapGGBlackLabel"/>
+								</VBox>
+							</HBox>
+							<c:CustomProgressIndicator type="actual" actual="{InProcessActualQuantity}" planned="{InProcessPlannedQuantity}" showValue="false"
+								state="None" height="10px" class="sapGGOverviewPageProgressIndicatorActual"/>
+							<HBox>
+								<VBox width="60%">
+									<Text text="{i18n>scrap}" class="sapGGBlackLabel"/>
+								</VBox>
+								<VBox width="40%" alignItems="End">
+									<Text text="{path:'InProcessConfirmedScrapQty', formatter:'.formatter.getNumber'} {ProductionUnit}" class="sapGGBlackLabel"/>
+								</VBox>
+							</HBox>
+							<c:CustomProgressIndicator type="scrap" planned="{InProcessPlannedQuantity}" scrap="{InProcessConfirmedScrapQty}"
+								showValue="false" state="None" height="10px"/>
+						</VBox>
+						<VBox class="sapUiSmallMarginBottom">
+							<Text text="{i18n>currentOperator}" class="sapGGGreyLabel"/>
+							<Text text="{CurrentOperator}" class="sapGGBlackLabel"/>
+						</VBox>
+						<HBox>
+							<VBox width="80%" class="sapUiSmallMarginBottom">
+								<Text text="{i18n>issues}" class="sapGGGreyLabel"/>
+								<HBox>
+									<VBox>
+										<core:Icon color="{path:'TotalOperationOnHold', formatter:'.formatter.getIssueIconColor'}" src="sap-icon://status-negative"
+											tooltip="{i18n>operationOnHold}" class="sapUiTinyMarginEnd sapUiTinyMarginTop"/>
+										<c:IssueNumberText text="{TotalOperationOnHold}" count="{TotalOperationOnHold}" class="sapGGIssuesNumber"/>
+									</VBox>
+									<VBox>
+										<core:Icon color="{path:'TotalOperationExecutionIsLate', formatter:'.formatter.getIssueIconColor'}" src="sap-icon://history"
+											tooltip="{i18n>operationDelayed}" class="sapUiTinyMarginEnd sapUiTinyMarginTop"/>
+										<c:IssueNumberText text="{TotalOperationExecutionIsLate}" count="{TotalOperationExecutionIsLate}" class="sapGGIssuesNumber"/>
+									</VBox>
+									<VBox>
+										<core:Icon color="{path:'TotalOperationMissingComponents', formatter:'.formatter.getIssueIconColor'}" src="sap-icon://tree"
+											tooltip="{i18n>componentsMissing}" class="sapUiTinyMarginEnd sapUiTinyMarginTop"/>
+										<c:IssueNumberText text="{TotalOperationMissingComponents}" count="{TotalOperationMissingComponents}" class="sapGGIssuesNumber"/>
+									</VBox>
+									<VBox>
+										<core:Icon color="{path:'TotalOperationMissingTools', formatter:'.formatter.getIssueIconColor'}" src="sap-icon://wrench"
+											tooltip="{i18n>toolsMissing}" class="sapUiTinyMarginEnd sapUiTinyMarginTop"/>
+										<c:IssueNumberText text="{TotalOperationMissingTools}" count="{TotalOperationMissingTools}" class="sapGGIssuesNumber"/>
+									</VBox>
+									<VBox>
+										<core:Icon color="{path:'TotalOperationYieldDeviationQty', formatter:'.formatter.getIssueIconColor'}" src="sap-icon://dimension"
+											tooltip="{i18n>quantityDeviation}" class="sapUiTinyMarginEnd sapUiTinyMarginTop"/>
+										<c:IssueNumberText text="{TotalOperationYieldDeviationQty}" count="{TotalOperationYieldDeviationQty}" class="sapGGIssuesNumber"/>
+									</VBox>
+									<VBox>
+										<core:Icon color="{path:'TotalOpScrapQualityIssue', formatter:'.formatter.getIssueIconColor'}" src="sap-icon://quality-issue"
+											tooltip="{i18n>qualityDeviation}" class="sapUiTinyMarginEnd sapUiTinyMarginTop"/>
+										<c:IssueNumberText text="{TotalOpScrapQualityIssue}" count="{TotalOpScrapQualityIssue}" class="sapGGIssuesNumber"/>
+									</VBox>
+								</HBox>
+							</VBox>
+							<VBox width="20%" alignItems="Center">
+								<Text textAlign="Center" width="100px" text="{i18n>status}" class="sapGGGreyLabel"/>
+								<c:StatusText textAlign="Center" width="100px" text="{WorkCenterStatus}" status="{WorkCenterStatus}"/>
+							</VBox>
+						</HBox>
+					</VBox>
+					<customData>
+						<core:CustomData key="workCenter" value="{WorkCenter}"/>
+					</customData>
+				</CustomListItem>
+			</List>
+		</content>
+	</Page>
+</mvc:View>

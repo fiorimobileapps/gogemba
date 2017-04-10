@@ -1,0 +1,151 @@
+.sapGGGreyLabel{
+	color: grey !important;
+}
+.sapGGGreenLabel{
+	color: green !important;
+}
+.sapGGRedLabel{
+	color:#CC0000 !important;
+}
+.sapGGBlueLabel{
+	color:#0087BA !important;
+}
+.sapGGBlackLabel{
+	color:black !important;
+}
+.sapGGBorder {
+	border-bottom: 1px solid #eee;
+}
+.sapGGIssuesNumber{
+	margin-left:3px !important;
+	font-size: 0.875rem !important;
+}
+.sapGGAccuracy{
+	font-size:1.2em;
+	color: grey !important;
+	font-family:Arial !important;
+}
+.sapGGIconSize{
+	font-size:14pt !important;
+}
+.sapGGDirectionImage{
+	margin-top:-10px;
+}
+.sapGGPageBackground{
+	background-color:#F2F8FC !important;
+}
+.sapGGWhiteBackground{
+	background-color:white !important;
+}
+
+/*  ==== Overview Page ========================================================== */
+
+.sapGGOverviewPageProgress{
+	margin-top:-20px !important;
+}
+.sapGGOverviewPageProgressIndicatorPlanned{
+	border:none !important;
+	background-color:#E5E3E0 !important;
+}
+.sapGGOverviewPageProgressIndicatorPlanned>.sapGGProgressBar{
+	border:none !important;
+	background: #999999;
+}
+
+.sapGGProgressBar{
+	border:none !important;
+}
+
+/*  ==== CustomProgressIndicator ========================================================== */
+
+.sapGGProgressIndicatorActualGreen{
+	border:none !important;
+	background-color:#005f28 !important;
+	
+}
+.sapGGProgressIndicatorActualRed{
+	border:none !important;
+	background-color:#E5E3E0 !important;
+}
+.sapGGProgressIndicatorActualGreen>.sapGGProgressBar{
+	background: #005f28
+	
+}
+.sapGGProgressIndicatorActualRed>.sapGGProgressBar{
+	background: #CC0000;
+}
+/*  ==== Milestone ========================================================== */
+
+.sapGGStatusInactive {
+	display: inline-block;
+	padding: 8px;
+	border: 2px solid #ddd;
+	border-radius: 12px;
+	text-align: center;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.sapGGStatusConnectLine {
+	display: inline-block;
+	background:#ddd;
+	text-align: center;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin-bottom: 8px;
+}
+
+.sapGGStatusActive {
+	background:#5FA454;
+	border: 2px solid #5FA454;
+}
+.sapGGIconIsReleased{
+	background: #5FA454;
+	width: 24px;
+	height: 24px;
+	color: #fff;
+	position: relative;
+	float: left;
+	top: -10px;
+	border-radius: 12px;
+	left: -10px;
+	box-sizing: border-box;
+}
+.sapGGIconIsDelayed{
+	background: #E98531;
+	width: 24px;
+	height: 24px;
+	color: #fff;
+	position: relative;
+	float: left;
+	top: -10px;
+	border-radius: 12px;
+	left: -10px;
+	box-sizing: border-box;
+}
+.sapGGIconIsFinished {
+	color: #E9112C;
+	position: relative;
+	float: left;
+	top: -12px;
+	left: -10px;
+	box-sizing: border-box;
+}
+.sapGGStatusVerticalLine {
+	display: inline-block;
+	background: #E9112C;
+	text-align: center;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	position: relative;
+	float: left;
+	top: -8px;
+	left: 2px;
+}
+.sapGGIconAlignment {
+	vertical-align: bottom;
+	padding-top: 5px;
+}
+.sapGGRemoveListBorderBottom {
+	border-bottom: 0px !important;
+}

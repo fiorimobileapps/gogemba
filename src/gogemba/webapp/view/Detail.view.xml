@@ -1,0 +1,251 @@
+<core:View xmlns:core="sap.ui.core" xmlns="sap.uxap" xmlns:l="sap.ui.layout" xmlns:m="sap.m" xmlns:c="gogemba.controls"
+	controllerName="gogemba.controller.Detail" height="100%">
+	<m:Page id="page" title="{i18n>detailTitle}" showNavButton="true" showHeader="true" navButtonPress="onNavBack">
+		<m:content>
+			<ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false" subSectionLayout="TitleOnTop" showHeaderContent="true">
+				<headerContent>
+					<m:HBox items="{detail>/}" width="100%">
+						<m:VBox>
+							<m:VBox class="sapUiSmallMarginTop">
+								<m:HBox>
+									<m:VBox width="60%">
+										<m:Label text="{detail>WorkCenterText}" design="Bold" class="sapGGBlackLabel"/>
+										<m:Label text="{detail>WorkCenter}" design="Bold" class="sapGGBlackLabel"/>
+										<m:Text text="{detail>WorkCenterInternalID}" class="sapUiTinyMarginTopBottom sapGGGreyLabel"/>
+									</m:VBox>
+									<m:VBox width="40%" alignItems="Center">
+										<m:Text text="{path:'detail>Accuracy', formatter:'.formatter.getAccuracy'}" class="sapGGAccuracy"/>
+									</m:VBox>
+								</m:HBox>
+							</m:VBox>
+							<m:VBox>
+								<m:HBox>
+									<m:VBox width="60%">
+										<m:Text text="{i18n>currentOperator}" class="sapGGGreyLabel"/>
+										<m:Text text="{detail>CurrentOperator}"/>
+									</m:VBox>
+									<m:VBox width="40%" alignItems="Center">
+										<m:Text textAlign="Center" text="{i18n>status}" class="sapGGGreyLabel"/>
+										<c:StatusText text="{detail>WorkCenterStatus}" status="{detail>WorkCenterStatus}"/>
+									</m:VBox>
+								</m:HBox>
+							</m:VBox>
+						</m:VBox>
+					</m:HBox>
+				</headerContent>
+				<sections>
+					<ObjectPageSection title="{i18n>operationInProcess}" class="sapGGFontSize2">
+						<subSections>
+							<ObjectPageSubSection title="{i18n>operationInProcess}">
+								<blocks>
+									<m:List items="{inProcessOrders>/}" noDataText="{i18n>noDataText}" class="sapUiTinyMarginTop sapGGBorder">
+										<m:CustomListItem>
+											<m:VBox width="100%">
+												<m:HBox class="sapUiTinyMargin">
+													<m:VBox width="60%">
+														<m:Text text="{i18n>orderID}" class="sapGGBlackLabel"/>
+														<m:Label text="{inProcessOrders>ManufacturingOrder}" design="Bold"/>
+													</m:VBox>
+													<m:VBox width="40%" class="sapUiSmallMarginTop" alignItems="End" justifyContent="End">
+														<c:Milestone value="{inProcessOrders>Stat_Calc}"/>
+													</m:VBox>
+												</m:HBox>
+												<m:HBox class="sapUiTinyMargin">
+													<m:VBox width="50%">
+														<m:Text text="{i18n>material}" class="sapGGGreyLabel"/>
+														<m:Text text="{inProcessOrders>Material}"/>
+														<m:Text text="{inProcessOrders>MaterialName}"/>
+													</m:VBox>
+													<m:VBox width="50%" class="sapUiSmallMarginTop">
+														<m:ProgressIndicator height="25px"
+															percentValue="{parts: [{path:'inProcessOrders>MfgOrderActualTotalQty'},{path:'inProcessOrders>MfgOrderPlannedTotalQty'}], formatter:'.formatter.getProgress'}"
+															displayValue="{inProcessOrders>MfgOrderActualTotalQty} of {inProcessOrders>MfgOrderPlannedTotalQty} {inProcessOrders>ProductionUnit}"
+															showValue="true" state="None"/>
+													</m:VBox>
+												</m:HBox>
+												<m:HBox class="sapUiTinyMargin">
+													<m:VBox width="50%">
+														<m:Text text="{i18n>scheduledEnd}" class="sapGGGreyLabel"/>
+														<m:Text text="{path:'inProcessOrders>MfgOrderPlannedEndTime', formatter:'.formatter.formatTime'}"/>
+													</m:VBox>
+													<m:VBox width="50%" class="sapUiSmallMarginTop">
+														<m:ProgressIndicator height="25px"
+															percentValue="{parts: [{path:'inProcessOrders>MfgOrderConfirmedScrapQty'},{path:'inProcessOrders>MfgOrderActualTotalQty'}], formatter:'.formatter.getProgress'}"
+															displayValue="{inProcessOrders>MfgOrderConfirmedScrapQty} of {inProcessOrders>MfgOrderActualTotalQty} {inProcessOrders>ProductionUnit}"
+															showValue="true" state="Error"/>
+													</m:VBox>
+												</m:HBox>
+												<m:HBox class="sapUiTinyMargin">
+													<m:VBox width="80%">
+														<m:Text text="{i18n>issues}" class="sapGGGreyLabel"/>
+														<m:HBox>
+															<core:Icon src="sap-icon://status-negative" class="sapUiTinyMarginEnd sapUiTinyMarginTop sapGGIconSize"
+																color="{parts: [{path:'inProcessOrders>OperationOnHold'},{path:'inProcessOrders>OperationIssues/OperationOnHold/Status'}], formatter:'.formatter.getIconColor'}"
+																tooltip="{i18n>operationOnHold}" press="handleIssueIconPress"/>
+															<core:Icon src="sap-icon://history" class="sapUiTinyMarginEnd sapUiTinyMarginTop sapGGIconSize"
+																color="{parts: [{path:'inProcessOrders>OperationExecutionEndIsLate'},{path:'inProcessOrders>OperationExecutionStartIsLate'}, {path:'inProcessOrders>OperationIssues/OperationExecutionIsLate/Status'}], formatter:'.formatter.getIconColor2'}"
+																tooltip="{i18n>operationDelayed}" press="handleIssueIconPress"/>
+															<core:Icon src="sap-icon://tree" class="sapUiTinyMarginEnd sapUiTinyMarginTop sapGGIconSize"
+																color="{parts: [{path:'inProcessOrders>OperationMissingComponents'},{path:'inProcessOrders>OperationIssues/OperationMissingComponents/Status'}], formatter:'.formatter.getIconColor'}"
+																tooltip="{i18n>componentsMissing}" press="handleIssueIconPress"/>
+															<core:Icon src="sap-icon://wrench" class="sapUiTinyMarginEnd sapUiTinyMarginTop sapGGIconSize"
+																color="{parts: [{path:'inProcessOrders>OperationMissingTools'},{path:'inProcessOrders>OperationIssues/OperationMissingTools/Status'}], formatter:'.formatter.getIconColor'}"
+																tooltip="{i18n>toolsMissing}" press="handleIssueIconPress"/>
+															<core:Icon src="sap-icon://quality-issue" class="sapUiTinyMarginEnd sapUiTinyMarginTop sapGGIconSize"
+																color="{parts: [{path:'inProcessOrders>OpScrapQualityIssue'},{path:'inProcessOrders>OperationIssues/OpScrapQualityIssue/Status'}], formatter:'.formatter.getIconColor'}"
+																tooltip="{i18n>quantityDeviation}" press="handleIssueIconPress"/>
+															<m:customData>
+																<core:CustomData key="panel" value="1"/>
+																<core:CustomData key="orderID" value="{inProcessOrders>ManufacturingOrder}"/>
+															</m:customData>
+														</m:HBox>
+													</m:VBox>
+													<m:VBox width="20%"></m:VBox>
+												</m:HBox>
+											</m:VBox>
+										</m:CustomListItem>
+									</m:List>
+								</blocks>
+							</ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+					<ObjectPageSection title="{i18n>operationInQueue}">
+						<subSections>
+							<ObjectPageSubSection title="{i18n>operationInQueue}">
+								<blocks>
+									<m:List items="{inQueueOrders>/}" noDataText="{i18n>noDataText}" class="sapUiTinyMarginTop sapGGBorder">
+										<m:CustomListItem>
+											<m:VBox width="100%">
+												<m:HBox class="sapUiTinyMargin">
+													<m:VBox width="60%">
+														<m:Text text="{i18n>orderID}" class="sapGGBlackLabel"/>
+														<m:Label text="{inQueueOrders>ManufacturingOrder}" design="Bold"/>
+													</m:VBox>
+													<m:VBox width="40%" class="sapUiSmallMarginTop" alignItems="End" justifyContent="End">
+														<c:Milestone value="{inQueueOrders>Stat_Calc}"/>
+													</m:VBox>
+												</m:HBox>
+												<m:HBox class="sapUiTinyMargin">
+													<m:VBox width="80%">
+														<m:Text text="{i18n>material}" class="sapGGGreyLabel"/>
+														<m:Text text="{inQueueOrders>Material}"/>
+														<m:Text text="{inQueueOrders>MaterialName}"/>
+													</m:VBox>
+													<m:VBox width="20%"></m:VBox>
+												</m:HBox>
+												<m:HBox class="sapUiTinyMargin">
+													<m:VBox width="50%">
+														<m:Text text="{i18n>scheduledStart}" class="sapGGGreyLabel"/>
+														<m:Text text="{path:'inQueueOrders>MfgOrderPlannedStartTime', formatter:'.formatter.formatTime'}"/>
+													</m:VBox>
+													<m:VBox width="50%" class="sapUiSmallMarginTop" justifyContent="End"></m:VBox>
+												</m:HBox>
+												<m:HBox class="sapUiTinyMargin">
+													<m:VBox width="80%">
+														<m:Text text="{i18n>issues}" class="sapGGGreyLabel"/>
+														<m:HBox>
+															<core:Icon src="sap-icon://status-negative" class="sapUiTinyMarginEnd sapUiTinyMarginTop sapGGIconSize"
+																color="{parts: [{path:'inQueueOrders>OperationOnHold'},{path:'inQueueOrders>OperationIssues/OperationOnHold/Status'}], formatter:'.formatter.getIconColor'}"
+																tooltip="{i18n>operationOnHold}" press="handleIssueIconPress"/>
+															<core:Icon src="sap-icon://history" class="sapUiTinyMarginEnd sapUiTinyMarginTop sapGGIconSize"
+																color="{parts: [{path:'inQueueOrders>OperationExecutionEndIsLate'},{path:'inQueueOrders>OperationExecutionStartIsLate'}, {path:'inQueueOrders>OperationIssues/OperationExecutionIsLate/Status'}], formatter:'.formatter.getIconColor2'}"
+																tooltip="{i18n>operationDelayed}" press="handleIssueIconPress"/>
+															<core:Icon src="sap-icon://tree" class="sapUiTinyMarginEnd sapUiTinyMarginTop sapGGIconSize"
+																color="{parts: [{path:'inQueueOrders>OperationMissingComponents'},{path:'inQueueOrders>OperationIssues/OperationMissingComponents/Status'}], formatter:'.formatter.getIconColor'}"
+																tooltip="{i18n>componentsMissing}" press="handleIssueIconPress"/>
+															<core:Icon src="sap-icon://wrench" class="sapUiTinyMarginEnd sapUiTinyMarginTop sapGGIconSize"
+																color="{parts: [{path:'inQueueOrders>OperationMissingTools'},{path:'inQueueOrders>OperationIssues/OperationMissingTools/Status'}], formatter:'.formatter.getIconColor'}"
+																tooltip="{i18n>toolsMissing}" press="handleIssueIconPress"/>
+															<core:Icon src="sap-icon://quality-issue" class="sapUiTinyMarginEnd sapUiTinyMarginTop sapGGIconSize"
+																color="{parts: [{path:'inQueueOrders>OpScrapQualityIssue'},{path:'inQueueOrders>OperationIssues/OpScrapQualityIssue/Status'}], formatter:'.formatter.getIconColor'}"
+																tooltip="quantityDeviation" press="handleIssueIconPress"/>
+															<m:customData>
+																<core:CustomData key="panel" value="2"/>
+																<core:CustomData key="orderID" value="{inQueueOrders>ManufacturingOrder}"/>
+															</m:customData>
+														</m:HBox>
+													</m:VBox>
+													<m:VBox width="20%"></m:VBox>
+												</m:HBox>
+											</m:VBox>
+										</m:CustomListItem>
+									</m:List>
+								</blocks>
+							</ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+					<ObjectPageSection title="{i18n>finishedOperations}">
+						<subSections>
+							<ObjectPageSubSection title="{i18n>finishedOperations}">
+								<blocks>
+									<m:List items="{finishedOrders>/}" noDataText="{i18n>noDataText}" class="sapUiTinyMarginTop sapGGBorder">
+										<m:CustomListItem>
+											<m:VBox width="100%">
+												<m:HBox class="sapUiTinyMargin">
+													<m:VBox width="60%">
+														<m:Text text="{i18n>orderID}" class="sapGGBlackLabel"/>
+														<m:Label text="{finishedOrders>ManufacturingOrder}" design="Bold"/>
+													</m:VBox>
+													<m:VBox width="40%" class="sapUiSmallMarginTop" alignItems="End" justifyContent="End">
+														<c:Milestone value="{finishedOrders>Stat_Calc}"/>
+													</m:VBox>
+												</m:HBox>
+												<m:HBox class="sapUiTinyMargin">
+													<m:VBox width="50%">
+														<m:Text text="{i18n>material}" class="sapGGGreyLabel"/>
+														<m:Text text="{finishedOrders>Material}"/>
+														<m:Text text="{finishedOrders>MaterialName}"/>
+													</m:VBox>
+													<m:VBox width="50%"></m:VBox>
+												</m:HBox>
+												<m:HBox class="sapUiTinyMargin">
+													<m:VBox width="50%">
+														<m:Text text="{i18n>actualStart}" class="sapGGGreyLabel"/>
+														<m:Text
+															text="{parts: [{path:'finishedOrders>MfgOrderActualStartDate'},{path:'finishedOrders>MfgOrderActualStartTime'}], formatter:'.formatter.formatDateTime'}"/>
+													</m:VBox>
+													<m:VBox width="50%" class="sapUiSmallMarginBegin">
+														<m:Text text="{i18n>actualQuantity}" class="sapGGGreyLabel"/>
+														<m:Text text="{finishedOrders>MfgOrderActualTotalQty} {finishedOrders>ProductionUnit}"/>
+													</m:VBox>
+												</m:HBox>
+												<m:HBox class="sapUiTinyMargin">
+													<m:VBox width="50%">
+														<m:Text text="{i18n>actualEnd}" class="sapGGGreyLabel"/>
+														<m:Text text="{path:'finishedOrders>MfgOrderActualEndTime', formatter:'.formatter.formatTime'}"/>
+													</m:VBox>
+													<m:VBox width="50%" class="sapUiSmallMarginBegin">
+														<m:Text text="{i18n>scrapQuantity}" class="sapGGGreyLabel"/>
+														<m:Text text="{finishedOrders>MfgOrderConfirmedScrapQty} {finishedOrders>ProductionUnit}"/>
+													</m:VBox>
+												</m:HBox>
+												<m:HBox class="sapUiTinyMargin">
+													<m:VBox width="80%">
+														<m:Text text="{i18n>issues}" class="sapGGGreyLabel"/>
+														<m:HBox>
+															<core:Icon src="sap-icon://dimension" class="sapUiTinyMarginEnd sapUiTinyMarginTop sapGGIconSize"
+																color="{parts: [{path:'finishedOrders>OperationYieldDeviationQty'},{path:'finishedOrders>OperationIssues/OperationYieldDeviationQty/Status'}], formatter:'.formatter.getIconColor'}"
+																tooltip="{i18n>quantityDeviation}" press="handleIssueIconPress"/>
+															<core:Icon src="sap-icon://quality-issue" class="sapUiTinyMarginEnd sapUiTinyMarginTop sapGGIconSize"
+																color="{parts: [{path:'finishedOrders>OpScrapQualityIssue'},{path:'inQueueOrders>finishedOrders/OpScrapQualityIssue/Status'}], formatter:'.formatter.getIconColor'}"
+																tooltip="{i18n>qualityDeviation}" press="handleIssueIconPress"/>
+															<m:customData>
+																<core:CustomData key="panel" value="3"/>
+																<core:CustomData key="orderID" value="{finishedOrders>ManufacturingOrder}"/>
+															</m:customData>
+														</m:HBox>
+													</m:VBox>
+													<m:VBox width="20%"></m:VBox>
+												</m:HBox>
+											</m:VBox>
+										</m:CustomListItem>
+									</m:List>
+								</blocks>
+							</ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+				</sections>
+			</ObjectPageLayout>
+		</m:content>
+	</m:Page>
+</core:View>
